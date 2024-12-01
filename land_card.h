@@ -1,18 +1,23 @@
 #ifndef LAND_CARD_H
-#define LAND_CAR_H
+#define LAND_CARD_H
 
 #include <stdbool.h>
 
-//Land Meta Data
+// Enum for Land Types
+typedef enum {
+    LAND_FOREST,
+    LAND_ISLAND,
+    LAND_MOUNTAIN,
+    LAND_PLAINS,
+    LAND_SWAMP
+} LandType;
+
+// Land Meta Data
 typedef struct {
-    bool isMountain;
-    bool isForest;
-    bool isIsland;
-    bool isPlains;
-    bool isSwamp;
+    LandType type;
 } LandMetaData;
 
-//Land Mechanic Basics
+// Land Mechanic Basics
 typedef struct {
     bool inHand;
     bool inPlay;
@@ -21,17 +26,17 @@ typedef struct {
     bool isTapped;
 } LandMechanicBasics;
 
-//Mana production
+// Mana Production
 typedef struct {
     bool producingMana;
-    int RedManaAdded;
-    int GreenManaAdded;
-    int BlueManaAdded;
-    int WhiteManaAdded;
-    int BlackManaAdded;
+    int redManaAdded;
+    int greenManaAdded;
+    int blueManaAdded;
+    int whiteManaAdded;
+    int blackManaAdded;
 } ManaProduction;
 
-//Basic land struct
+// Basic Land Struct
 typedef struct {
     LandMetaData landMetaData;
     LandMechanicBasics landMechanicBasics;

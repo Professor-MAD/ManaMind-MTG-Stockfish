@@ -2,6 +2,7 @@
 #define CARDS_H
 
 #include "creature_card.h"
+#include "land_card.h"
 
 // Function to initialize a Grizzly Bears card
 void initializeGrizzlyBears(creatureCard* card);

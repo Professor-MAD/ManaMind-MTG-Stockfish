@@ -23,11 +23,29 @@ void setDefaultAbilities(Abilities* abilities) {
     abilities->hasVigilance = false;
 }
 
-//Helper function to set Unblockables
+// Helper function to set unblockable properties
 void setUnblockables(Unblockables* unblockableVarieties) {
     unblockableVarieties->isUnblockable = false;
     unblockableVarieties->blockableByType = false;
     unblockableVarieties->blockableByLegend = false;
+}
+
+// Land Helper Functions
+void resetLandMechanics(LandMechanicBasics* mechanics) {
+    mechanics->inHand = false;
+    mechanics->inPlay = false;
+    mechanics->inGraveyard = false;
+    mechanics->inLibrary = true;
+    mechanics->isTapped = false;
+}
+
+void resetManaProduction(ManaProduction* production) {
+    production->producingMana = false;
+    production->redManaAdded = 0;
+    production->greenManaAdded = 0;
+    production->blueManaAdded = 0;
+    production->whiteManaAdded = 0;
+    production->blackManaAdded = 0;
 }
 
 // Grizzly Bears initialization
@@ -74,26 +92,15 @@ void initializeLlanowarElves(creatureCard* card) {
     card->manaGeneration.causesTap = true;
     card->manaGeneration.greenMana = 1;
 
-   setUnblockables(&card->unblockableVarieties);
+    setUnblockables(&card->unblockableVarieties);
 }
 
+// Forest initialization
 void initializeForest(BasicLand* card) {
-    card->landMetaData.isMountain = false;
-    card->landMetaData.isForest = true;
-    card->landMetaData.isIsland = false;
-    card->landMetaData.isPlains = false;
-    card->landMetaData.isSwamp = false;
+    card->landMetaData.type = LAND_FOREST;
 
-    card->landMechanicBasics.inHand = false;
-    card->landMechanicBasics.inPlay = false;
-    card->landMechanicBasics.inGraveyard = false;
-    card->landMechanicBasics.inLibrary = true;
-    card->landMechanicBasics.isTapped = false;
+    resetLandMechanics(&card->landMechanicBasics);
 
-    card->manaProduction.producingMana = false;
-    card->manaProduction.RedManaAdded = 0;
-    card->manaProduction.GreenManaAdded = 1;
-    card->manaProduction.BlueManaAdded = 0;
-    card->manaProduction.WhiteManaAdded = 0;
-    card->manaProduction.BlackManaAdded = 0;
+    resetManaProduction(&card->manaProduction);
+    card->manaProduction.greenManaAdded = 1;
 }

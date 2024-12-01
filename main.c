@@ -21,6 +21,8 @@ int main(void) {
     // Player Initialization
     int playerLifeTotal = 20;
 
+    //Mana Pool Intialization
+
     // Simulate Game Logic
     bool isBlocked = blockingPreventsDamage(grizzlyBears.power, grizzlyBears.toughness);
     int lifeAfterAttack = damageToPlayer(grizzlyBears.power, playerLifeTotal, isBlocked);
@@ -36,6 +38,9 @@ int main(void) {
     // Print Game Update
     printf("\n--- Game Update ---\n");
     printf("Player's Life after attack: %i\n", lifeAfterAttack);
+
+    //Print Forest Details
+    printf("Forest is in play. It taps to produce %i green mana\n", forest.manaProduction.GreenManaAdded);
 
     return 0;
 }
