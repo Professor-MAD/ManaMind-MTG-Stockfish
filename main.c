@@ -40,7 +40,7 @@ int main(void) {
     printf("Player's Life after attack: %i\n", lifeAfterAttack);
 
     //Print Forest Details
-    printf("Forest is in play. It taps to produce %i green mana\n", forest.manaProduction.GreenManaAdded);
+    printf("Forest is in play. It taps to produce %i green mana\n", forest.manaProduction.greenManaAdded);
 
     return 0;
 }
