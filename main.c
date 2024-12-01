@@ -3,6 +3,7 @@
 #include "creature_card.h"
 #include "cards.h"
 #include "game_logic.h"
+#include "land_card.h"
 
 int main(void) {
     // Initialize Grizzly Bears
@@ -12,6 +13,10 @@ int main(void) {
     // Initialize Llanowar Elves
     creatureCard llanowarElves;
     initializeLlanowarElves(&llanowarElves);
+
+    //Initialize Forest
+    BasicLand forest;
+    initializeForest(&forest);
 
     // Player Initialization
     int playerLifeTotal = 20;

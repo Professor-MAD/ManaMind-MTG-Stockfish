@@ -1,4 +1,5 @@
 #include "cards.h"
+#include "land_card.h"
 #include <string.h>
 
 // Helper function to initialize mana cost
@@ -76,3 +77,26 @@ void initializeLlanowarElves(creatureCard* card) {
    setUnblockables(&card->unblockableVarieties);
 }
 
+void initializeForest(BasicLand* card) {
+    //Land Meta Data
+    card->landMetaData.isMountain = false;
+    card->landMetaData.isForest = true;
+    card->landMetaData.isIsland = false;
+    card->landMetaData.isPlains = false;
+    card->landMetaData.isSwamp = false;
+
+    //Land Mechanic Basics
+    card->landMechanicBasics.inHand = false;
+    card->landMechanicBasics.inPlay = false;
+    card->landMechanicBasics.inGraveyard = false;
+    card->landMechanicBasics.inLibrary = true;
+    card->landMechanicBasics.isTapped = false;
+
+    //Mana production
+    card->manaProduction.producingMana = false;
+    card->manaProduction.RedManaAdded = 0;
+    card->manaProduction.GreenManaAdded = 1;
+    card->manaProduction.BlueManaAdded = 0;
+    card->manaProduction.WhiteManaAdded = 0;
+    card->manaProduction.BlackManaAdded = 0;
+}

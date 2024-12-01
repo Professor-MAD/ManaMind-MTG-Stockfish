@@ -9,4 +9,7 @@ void initializeGrizzlyBears(creatureCard* card);
 // Function to initialize Llanowar Elves
 void initializeLlanowarElves(creatureCard* card);
 
+// Function to create a Forest
+void initializeForest(BasicLand* card);
+
 #endif // CARDS_H
