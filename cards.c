@@ -78,21 +78,18 @@ void initializeLlanowarElves(creatureCard* card) {
 }
 
 void initializeForest(BasicLand* card) {
-    //Land Meta Data
     card->landMetaData.isMountain = false;
     card->landMetaData.isForest = true;
     card->landMetaData.isIsland = false;
     card->landMetaData.isPlains = false;
     card->landMetaData.isSwamp = false;
 
-    //Land Mechanic Basics
     card->landMechanicBasics.inHand = false;
     card->landMechanicBasics.inPlay = false;
     card->landMechanicBasics.inGraveyard = false;
     card->landMechanicBasics.inLibrary = true;
     card->landMechanicBasics.isTapped = false;
 
-    //Mana production
     card->manaProduction.producingMana = false;
     card->manaProduction.RedManaAdded = 0;
     card->manaProduction.GreenManaAdded = 1;
