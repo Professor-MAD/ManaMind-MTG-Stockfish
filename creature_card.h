@@ -72,6 +72,13 @@ typedef struct {
     int blackMana;
 } ManaGeneration;
 
+//Unblockables
+typedef struct {
+    bool isUnblockable;
+    bool blockableByType;
+    bool blockableByLegend;
+} Unblockables;
+
 // Main creature card struct
 typedef struct {
     // Metadata
@@ -95,11 +102,8 @@ typedef struct {
     Abilities abilities;
     DamageAbilities damageAbilities;
     ManaGeneration manaGeneration;
+    Unblockables unblockableVarieties;
 
-    // Blocking
-    bool isUnblockable;
-    bool blockableByType;
-    bool blockableByLegend;
 } creatureCard;
 
 #endif

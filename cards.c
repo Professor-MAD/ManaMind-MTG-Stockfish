@@ -22,6 +22,13 @@ void setDefaultAbilities(Abilities* abilities) {
     abilities->hasVigilance = false;
 }
 
+//Helper function to set Unblockables
+void setUnblockables(Unblockables* unblockableVarieties) {
+    unblockableVarieties->isUnblockable = false;
+    unblockableVarieties->blockableByType = false;
+    unblockableVarieties->blockableByLegend = false;
+}
+
 // Grizzly Bears initialization
 void initializeGrizzlyBears(creatureCard* card) {
     strcpy(card->name, "Grizzly Bears");
@@ -41,9 +48,7 @@ void initializeGrizzlyBears(creatureCard* card) {
     card->damageAbilities.hasDamageAbility = false;
     card->manaGeneration.hasManaCreation = false;
 
-    card->isUnblockable = false;
-    card->blockableByLegend = false;
-    card->blockableByType = false;
+    setUnblockables(&card->unblockableVarieties);
 }
 
 // Llanowar Elves initialization
@@ -68,7 +73,6 @@ void initializeLlanowarElves(creatureCard* card) {
     card->manaGeneration.causesTap = true;
     card->manaGeneration.greenMana = 1;
 
-    card->isUnblockable = false;
-    card->blockableByLegend = false;
-    card->blockableByType = false;
+   setUnblockables(&card->unblockableVarieties);
 }
+
