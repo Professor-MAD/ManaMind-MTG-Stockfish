@@ -1,0 +1,5 @@
+Zone	Recommended Structure	Why
+Hand	Dynamic Array (e.g., ArrayList)	Small, fixed-size; fast random access.
+Library	Linked List	Dynamic size; efficient shuffling and drawing.
+Graveyard	Linked List (Stack Style)	Efficient LIFO behavior for interactions with the top card.
+Battlefield	Hash Table	Quick lookups for card state and effects; cards can be uniquely indexed.
