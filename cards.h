@@ -2,15 +2,13 @@
 #define CARDS_H
 
 #include "creature_card.h"
+#include "sorcery_card.h"
 #include "land_card.h"
 
-// Function to initialize a Grizzly Bears card
+// Functions for initializing cards
 void initializeGrizzlyBears(creatureCard* card);
-
-// Function to initialize Llanowar Elves
 void initializeLlanowarElves(creatureCard* card);
-
-// Function to create a Forest
+void initializeGiantGrowth(Sorcery* card);
 void initializeForest(BasicLand* card);
 
-#endif // CARDS_H
+#endif

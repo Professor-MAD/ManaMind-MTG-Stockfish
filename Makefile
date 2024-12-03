@@ -3,7 +3,7 @@ CC = clang
 CFLAGS = -Wall -Wextra -std=c17
 
 # Source Files
-SOURCES = main.c cards.c game_logic.c
+SOURCES = main.c cards.c game_logic.c card_helpers.c
 OBJECTS = $(SOURCES:.c=.o)
 EXECUTABLE = game-engine.exe
 
