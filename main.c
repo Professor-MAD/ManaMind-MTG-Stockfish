@@ -2,27 +2,15 @@
 #include <stdbool.h>
 #include "cards.h"
 #include "hand.h"
+#include "green_deck.h"
 
 int main(void) {
     // Initialize Hand
     Hand playerHand;
     initializeHand(&playerHand);
 
-    // Initialize Grizzly Bears
-    creatureCard grizzlyBears;
-    initializeGrizzlyBears(&grizzlyBears);
-
-    // Initialize Llanowar Elves
-    creatureCard llanowarElves;
-    initializeLlanowarElves(&llanowarElves);
-
-    // Initialize Forest
-    BasicLand forest;
-    initializeForest(&forest);
-
-    // Initialize Giant Growth
-    Sorcery giantGrowth;
-    initializeGiantGrowth(&giantGrowth);
+    // Initialize Green Deck
+    initializeGreenDeck();
 
     // Add cards to the hand
     addCardToHand(&playerHand, &grizzlyBears, 0);
@@ -36,7 +24,7 @@ int main(void) {
     // Display hand
     displayHand(&playerHand);
 
-    // Discard a a random card
+    // Discard a random card
     discardRandomCard(&playerHand);
     displayHand(&playerHand);
 
