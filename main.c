@@ -42,7 +42,7 @@ int main(void) {
 
     // Print Player Two's Hand
     printf("Player Two has a basic land: %s, a sorcery: %s, and a creature: %s\n",
-           "Forest", // BasicLand doesn't have a name, so hardcode it here
+           playerTwoHand[0].basicLand->name,
            playerTwoHand[1].sorcery->name,
            playerTwoHand[2].creature->name);
 
