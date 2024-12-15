@@ -9,7 +9,7 @@
 void initializeHand(Hand* hand) {
     hand->currentSize = 0;
     for (int i = 0; i < MAX_HAND_SIZE; i++) {
-        hand->cards[i] = NULL; // Initialize all slots to NULL
+        hand->cards[i] = NULL; // Initialize all slots to NULL for starting out
     }
 }
 
@@ -34,11 +34,14 @@ bool removeCardFromHand(Hand* hand, int index) {
     }
     for (int i = index; i < hand->currentSize - 1; i++) {
         hand->cards[i] = hand->cards[i + 1];
+        hand->cardTypes[i] = hand->cardTypes[i + 1]; // Shift the card types as well
     }
-    hand->cards[hand->currentSize -1 ] = NULL; //Clear the last spot
+    hand->cards[hand->currentSize - 1] = NULL; // Clear the last spot
+    hand->cardTypes[hand->currentSize - 1] = -1; // Set the type to an invalid value
     hand->currentSize--;
     return true;
 }
+
 
 // Remove a card at random
 bool discardRandomCard(Hand* hand) {
@@ -63,7 +66,7 @@ void displayHand(const Hand* hand) {
                 }
                 case 1: { // BasicLand
                     BasicLand* card = (BasicLand*)hand->cards[i];
-                    printf("Card %d: Basic Land (Type: %d)\n", i + 1, card->landMetaData.type);
+                    printf("Card %d: Basic Land (Type: %s)\n", i + 1, card->name);
                     break;
                 }
                 case 2: { // Sorcery
