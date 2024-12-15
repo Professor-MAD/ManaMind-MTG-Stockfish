@@ -1,8 +1,13 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "cards.h"
+#include "hand.h"
 
 int main(void) {
+    // Initialize Hand
+    Hand playerHand;
+    initializeHand(&playerHand);
+
     // Initialize Grizzly Bears
     creatureCard grizzlyBears;
     initializeGrizzlyBears(&grizzlyBears);
@@ -19,32 +24,16 @@ int main(void) {
     Sorcery giantGrowth;
     initializeGiantGrowth(&giantGrowth);
 
-    // Player One's Hand (Array of Creature Cards)
-    creatureCard playerOneHand[10];
-    playerOneHand[0] = grizzlyBears;
-    playerOneHand[1] = llanowarElves;
+    // Add cards to the hand
+    addCardToHand(&playerHand, &grizzlyBears);
+    addCardToHand(&playerHand, &llanowarElves);
 
-    // Player Two's Hand (Struct to Support Multiple Types)
-    typedef struct {
-        BasicLand* basicLand;
-        Sorcery* sorcery;
-        creatureCard* creature;
-    } CardSlot;
+    // Display hand
+    displayHand(&playerHand);
 
-    CardSlot playerTwoHand[10];
-    playerTwoHand[0].basicLand = &forest;
-    playerTwoHand[1].sorcery = &giantGrowth;
-    playerTwoHand[2].creature = &llanowarElves;
-
-    // Print Player One's Hand
-    printf("Card 1 in Player One's hand is %s. Its power is %i and its toughness is also %i\n",
-           playerOneHand[0].name, playerOneHand[0].power, playerOneHand[0].toughness);
-
-    // Print Player Two's Hand
-    printf("Player Two has a basic land: %s, a sorcery: %s, and a creature: %s\n",
-           playerTwoHand[0].basicLand->name,
-           playerTwoHand[1].sorcery->name,
-           playerTwoHand[2].creature->name);
+    // Discard a a random card
+    discardRandomCard(&playerHand);
+    displayHand(&playerHand);
 
     return 0;
 }

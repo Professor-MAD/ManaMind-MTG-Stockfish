@@ -25,4 +25,4 @@ void resetBuffDebuffEffect(BuffDebuffEffect* buffDebuffEffect);
 void resetLandMechanics(LandMechanicBasics* mechanics);
 void resetManaProduction(ManaProduction* production);
 
-#endif // CARD_HELPERS_H
+#endif
