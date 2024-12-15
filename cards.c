@@ -57,6 +57,7 @@ void initializeGiantGrowth(Sorcery* card) {
 
 // Forest initialization
 void initializeForest(BasicLand* card) {
+    strcpy_s(card->name, sizeof(card->name), "Forest");
     card->landMetaData.type = LAND_FOREST;
     resetLandMechanics(&card->landMechanicBasics);
     resetManaProduction(&card->manaProduction);

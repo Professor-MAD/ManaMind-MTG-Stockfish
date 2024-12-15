@@ -19,10 +19,32 @@ int main(void) {
     Sorcery giantGrowth;
     initializeGiantGrowth(&giantGrowth);
 
-    // Print Giant Growth Details
-    printf("Giant Growth pumps a creature +%i/+%i until end of turn\n",
-           giantGrowth.buffDebuffEffect.buffPower, giantGrowth.buffDebuffEffect.buffToughness);
-    printf("It costs %i green mana to play\n", giantGrowth.manaCost.green);
+    // Player One's Hand (Array of Creature Cards)
+    creatureCard playerOneHand[10];
+    playerOneHand[0] = grizzlyBears;
+    playerOneHand[1] = llanowarElves;
+
+    // Player Two's Hand (Struct to Support Multiple Types)
+    typedef struct {
+        BasicLand* basicLand;
+        Sorcery* sorcery;
+        creatureCard* creature;
+    } CardSlot;
+
+    CardSlot playerTwoHand[10];
+    playerTwoHand[0].basicLand = &forest;
+    playerTwoHand[1].sorcery = &giantGrowth;
+    playerTwoHand[2].creature = &llanowarElves;
+
+    // Print Player One's Hand
+    printf("Card 1 in Player One's hand is %s. Its power is %i and its toughness is also %i\n",
+           playerOneHand[0].name, playerOneHand[0].power, playerOneHand[0].toughness);
+
+    // Print Player Two's Hand
+    printf("Player Two has a basic land: %s, a sorcery: %s, and a creature: %s\n",
+           "Forest", // BasicLand doesn't have a name, so hardcode it here
+           playerTwoHand[1].sorcery->name,
+           playerTwoHand[2].creature->name);
 
     return 0;
 }

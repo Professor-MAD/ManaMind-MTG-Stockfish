@@ -38,6 +38,7 @@ typedef struct {
 
 // Basic Land Struct
 typedef struct {
+    char name[100];
     LandMetaData landMetaData;
     LandMechanicBasics landMechanicBasics;
     ManaProduction manaProduction;

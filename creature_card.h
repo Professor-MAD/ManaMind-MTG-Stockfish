@@ -4,6 +4,9 @@
 #include "shared_definitions.h"
 
 // Enum for card types
+// TODO - Put in shared_defintions.h
+// Obviously we know this is a creature card
+// This struct needs to be applied more broadly, in shared_definitions.h
 typedef enum {
     TYPE_CREATURE,
     TYPE_ARTIFACT,
