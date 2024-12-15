@@ -25,8 +25,8 @@ int main(void) {
     initializeGiantGrowth(&giantGrowth);
 
     // Add cards to the hand
-    addCardToHand(&playerHand, &grizzlyBears);
-    addCardToHand(&playerHand, &llanowarElves);
+    addCardToHand(&playerHand, &grizzlyBears, 0);
+    addCardToHand(&playerHand, &llanowarElves, 0);
 
     // Display hand
     displayHand(&playerHand);

@@ -2,6 +2,7 @@
 #include "hand.h"
 #include <stdbool.h>
 #include <stdlib.h>
+#include "cards.h"
 
 
 // Initialize Hand
@@ -12,16 +13,18 @@ void initializeHand(Hand* hand) {
     }
 }
 
-// Add card to hand
-bool addCardToHand(Hand* hand, void* card) {
+// Add card to hand with type
+bool addCardToHand(Hand* hand, void* card, int cardType) {
     if (hand->currentSize >= MAX_HAND_SIZE) {
         printf("Hand is at 10! Program limit reached.\n");
         return false;
     }
     hand->cards[hand->currentSize] = card;
+    hand->cardTypes[hand->currentSize] = cardType; // Set the card type
     hand->currentSize++;
     return true;
 }
+
 
 // Remove a card from hand by index
 bool removeCardFromHand(Hand* hand, int index) {
@@ -47,10 +50,30 @@ bool discardRandomCard(Hand* hand) {
     return removeCardFromHand(hand, randomIndex); //Call Remove card from hand function if not false
 }
 
-// Display the hand
+// Display the hand with multiple card types
 void displayHand(const Hand* hand) {
     printf("Hand contains %d cards:\n", hand->currentSize);
     for (int i = 0; i < hand->currentSize; i++) {
-        printf("Card %d: %p\n", i, hand->cards[i]);
+        if (hand->cards[i] != NULL) {
+            switch (hand->cardTypes[i]) {
+                case 0: { // creatureCard
+                    creatureCard* card = (creatureCard*)hand->cards[i];
+                    printf("Card %d: %s (Creature)\n", i + 1, card->name);
+                    break;
+                }
+                case 1: { // BasicLand
+                    BasicLand* card = (BasicLand*)hand->cards[i];
+                    printf("Card %d: Basic Land (Type: %d)\n", i + 1, card->landMetaData.type);
+                    break;
+                }
+                case 2: { // Sorcery
+                    Sorcery* card = (Sorcery*)hand->cards[i];
+                    printf("Card %d: %s (Sorcery)\n", i + 1, card->name);
+                    break;
+                }
+                default:
+                    printf("Card %d: Unknown type\n", i + 1);
+            }
+        }
     }
 }

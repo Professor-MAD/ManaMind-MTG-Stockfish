@@ -8,13 +8,14 @@
 typedef struct {
     void* cards[MAX_HAND_SIZE];
     int currentSize;
+    int cardTypes[MAX_HAND_SIZE];
 } Hand;
 
 // Initialize Hand
 void initializeHand(Hand* hand);
 
 // Add card to hand
-bool addCardToHand(Hand* hand, void* card);
+bool addCardToHand(Hand* hand, void* card, int cardType); 
 
 // Remove a card from hand by index
 bool removeCardFromHand(Hand* hand, int index);
