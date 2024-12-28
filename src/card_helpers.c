@@ -68,3 +68,78 @@ void resetManaProduction(ManaProduction* production) {
     production->whiteManaAdded = 0;
     production->blackManaAdded = 0;
 }
+
+// Reset Enchantment Basics
+void resetEnchantmentBasics(EnchantmentBasics* basics) {
+    basics->inHand = false;
+    basics->inGraveyard = false;
+    basics->inLibrary = false;
+    basics->isExiled = false;
+    basics->canFlashback = false;
+    basics->canBeCopied = false;
+}
+
+// Reset Draw Effect
+void resetDrawEffect(DrawEffect* effect) {
+    effect->hasDrawEffect = false;
+    effect->drawAmount = 0;
+    effect->opponentDrawAmount = 0;
+}
+
+// Reset Equipment Basics
+void resetEquipmentBasics(EquipmentBasics* equipment) {
+    equipment->isEquipment = false;
+    equipment->isEquipped = false;
+}
+
+// Reset Other Effects
+void resetDiscardEffect(DiscardEffect* effect) {
+    effect->hasDiscardEffect = false;
+    effect->discardAmount = 0;
+    effect->opponentDiscardAmount = 0;
+}
+
+void resetDamageEffect(DamageEffect* effect) {
+    effect->hasDamageEffect = false;
+    effect->damageToPlayer = 0;
+    effect->damageToOpponent = 0;
+    effect->damageToCreatures = 0;
+    effect->damageToSingleCreature = 0;
+    effect->damageToCreatureTypes = 0;
+}
+
+// Reset Life Gain Effect
+void resetLifeGainEffect(LifeGainEffect* effect) {
+    effect->hasLifeGainEffect = false;
+    effect->lifeGainAmount = 0;
+    effect->opponentLifeGainAmount = 0;
+}
+
+// Reset Reveal Effect
+void resetRevealEffect(RevealEffect* effect) {
+    effect->hasRevealEffect = false;
+    effect->revealOpponentHand = false;
+    effect->revealOwnHand = false;
+    effect->revealLibraryTopCards = 0;
+}
+
+// Reset Search Effect
+void resetSearchEffect(SearchEffect* effect) {
+    effect->hasSearchEffect = false;
+    effect->searchLibrary = false;
+    effect->searchGraveyard = false;
+    effect->searchExile = false;
+}
+
+// Reset Token Effect
+void resetTokenEffect(TokenEffect* effect) {
+    effect->hasTokenEffect = false;
+    effect->tokenCount = 0;
+    memset(effect->tokenType, 0, sizeof(effect->tokenType));
+}
+
+// Reset Game End Effect
+void resetGameEndEffect(GameEndEffect* effect) {
+    effect->hasWinCondition = false;
+    effect->hasLoseCondition = false;
+}

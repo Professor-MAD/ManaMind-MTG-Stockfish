@@ -1,10 +1,10 @@
-#ifndef SORCERY_CARD_H
-#define SORCERY_CARD_H
+#ifndef ENCHANTMENT_CARD_H
+#define ENCHANTMENT_CARD_H
 
 #include "shared_definitions.h"
 #include "effect_definitions.h"
 
-// Sorcery Basics
+// Enchantment Basics
 typedef struct {
     bool inHand;
     bool inGraveyard;
@@ -12,14 +12,21 @@ typedef struct {
     bool isExiled;
     bool canFlashback;
     bool canBeCopied;
-} SorceryBasics;
+} EnchantmentBasics;
 
-// Main Sorcery struct
+// Equipment Basics
+typedef struct {
+    bool isEquipment;
+    bool isEquipped;
+} EquipmentBasics;
+
+// Main Enchantment struct
 typedef struct {
     char name[100];
     ColorFlags colors;
     ManaCost manaCost;
-    SorceryBasics sorceryBasics;
+    EnchantmentBasics enchantmentBasics;
+    EquipmentBasics equipmentBasics;
     DrawEffect drawEffect;
     DiscardEffect discardEffect;
     DamageEffect damageEffect;
@@ -30,6 +37,6 @@ typedef struct {
     BuffDebuffEffect buffDebuffEffect;
     GameEndEffect gameEndEffect;
     char flavorText[250];
-} Sorcery;
+} Enchantment;
 
 #endif

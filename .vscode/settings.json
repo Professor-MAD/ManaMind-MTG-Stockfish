@@ -12,6 +12,8 @@
     "time.h": "c",
     "cards.h": "c",
     "land_card.h": "c",
-    "card_helpers.h": "c"
+    "card_helpers.h": "c",
+    "enchantment_card.h": "c",
+    "sorcery_card.h": "c"
   }
 }

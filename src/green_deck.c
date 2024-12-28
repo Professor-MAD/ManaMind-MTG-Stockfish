@@ -1,22 +1,17 @@
 #include "../include/green_deck.h"
 
-// Define the cards
+// Declare cards
 creatureCard grizzlyBears;
 creatureCard llanowarElves;
 BasicLand forest;
 Sorcery giantGrowth;
+Enchantment elementalBond;
 
-// Function to initialize the green deck
+// Initialize the green deck
 void initializeGreenDeck(void) {
-    // Initialize Grizzly Bears
     initializeGrizzlyBears(&grizzlyBears);
-
-    // Initialize Llanowar Elves
     initializeLlanowarElves(&llanowarElves);
-
-    // Initialize Forest
     initializeForest(&forest);
-
-    // Initialize Giant Growth
     initializeGiantGrowth(&giantGrowth);
+    initializeElementalBond(&elementalBond);
 }

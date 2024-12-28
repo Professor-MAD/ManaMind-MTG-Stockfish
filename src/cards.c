@@ -5,6 +5,12 @@
 #include "../include/sorcery_card.h"
 #include "../include/card_helpers.h"
 #include "../include/land_card.h"
+#include "../include/enchantment_card.h"
+#include "../include/effect_definitions.h"
+
+
+// When initializing cards...remember the mana order:
+// total, colorless, green, red, blue, white, black, isXCost);
 
 // Grizzly Bears initialization
 void initializeGrizzlyBears(creatureCard* card) {
@@ -62,4 +68,28 @@ void initializeForest(BasicLand* card) {
     resetLandMechanics(&card->landMechanicBasics);
     resetManaProduction(&card->manaProduction);
     card->manaProduction.greenManaAdded = 1;
+}
+
+//Elemental Bond initialization
+void initializeElementalBond(Enchantment* card) {
+    strcpy_s(card->name, sizeof(card->name), "Elemental Bond");
+    card->colors = COLOR_GREEN;
+    setManaCost(&card->manaCost, 3, 2, 1, 0, 0, 0, 0, false);
+
+    resetEnchantmentBasics(&card->enchantmentBasics);
+    resetEquipmentBasics(&card->equipmentBasics);
+    resetDrawEffect(&card->drawEffect);
+    resetDiscardEffect(&card->discardEffect);
+    resetDamageEffect(&card->damageEffect);
+    resetLifeGainEffect(&card->lifeGainEffect);
+    resetRevealEffect(&card->revealEffect);
+    resetSearchEffect(&card->searchEffect);
+    resetTokenEffect(&card->tokenEffect);
+    resetBuffDebuffEffect(&card->buffDebuffEffect);
+    resetGameEndEffect(&card->gameEndEffect);
+
+    card->drawEffect.hasDrawEffect = true;
+    card->drawEffect.drawAmount = 1;
+
+    strcpy_s(card->flavorText, sizeof(card->flavorText), "When Elemental Bond is on the battlefield, it draws power from creatures.");
 }

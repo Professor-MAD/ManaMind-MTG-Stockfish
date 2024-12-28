@@ -22,6 +22,7 @@ bool addCardToHand(Hand* hand, void* card, int cardType) {
     }
     hand->cards[hand->currentSize] = card;
     hand->cardTypes[hand->currentSize] = cardType; // Set the card type
+    // Card types: 0=creature, 1=land, 2=sorcery, 3=enchantment
     hand->currentSize++;
     return true;
 }
@@ -93,6 +94,11 @@ void displayHand(const Hand* hand) {
                 case 2: { // Sorcery
                     Sorcery* card = (Sorcery*)hand->cards[i];
                     printf("Card %d: %s (Sorcery)\n", i + 1, card->name);
+                    break;
+                }
+                case 3: { // Enchantment
+                    Enchantment* card = (Enchantment*)hand->cards[i];
+                    printf("Card %d: %s (Enchantment)\n", i + 1, card->name);
                     break;
                 }
                 default:
