@@ -7,6 +7,7 @@
     "stdio.h": "c",
     "stdlib.h": "c",
     "hand.h": "c",
-    "stdbool.h": "c"
+    "stdbool.h": "c",
+    "shared_definitions.h": "c"
   }
 }

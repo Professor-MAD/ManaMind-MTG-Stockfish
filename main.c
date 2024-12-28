@@ -3,6 +3,7 @@
 #include "cards.h"
 #include "hand.h"
 #include "green_deck.h"
+#include "land_card.h"
 
 int main(void) {
     // Initialize Hand
@@ -25,6 +26,7 @@ int main(void) {
     displayHand(&playerHand);
 
     // Discard a random card
+    discardRandomCard(&playerHand);
     discardRandomCard(&playerHand);
     displayHand(&playerHand);
 

@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "cards.h"
-
+#include <time.h>
 
 // Initialize Hand
 void initializeHand(Hand* hand) {
@@ -32,13 +32,23 @@ bool removeCardFromHand(Hand* hand, int index) {
         printf("Invalid index! Cannot remove card.\n");
         return false;
     }
+
+    // Print debug information for clarity
+    printf("Removing card at index %d...\n", index + 1);
+
+    // Shift all elements after `index` one position to the left
     for (int i = index; i < hand->currentSize - 1; i++) {
         hand->cards[i] = hand->cards[i + 1];
-        hand->cardTypes[i] = hand->cardTypes[i + 1]; // Shift the card types as well
+        hand->cardTypes[i] = hand->cardTypes[i + 1];
     }
-    hand->cards[hand->currentSize - 1] = NULL; // Clear the last spot
-    hand->cardTypes[hand->currentSize - 1] = -1; // Set the type to an invalid value
+
+    // Clear the last element
+    hand->cards[hand->currentSize - 1] = NULL;
+    hand->cardTypes[hand->currentSize - 1] = -1;
+
+    // Decrement the size of the hand
     hand->currentSize--;
+
     return true;
 }
 
@@ -49,9 +59,19 @@ bool discardRandomCard(Hand* hand) {
         printf("Hand is empty! No cards to discard.\n");
         return false;
     }
+
+    // Seed the random number generator only once
+    static bool seeded = false;
+    if (!seeded) {
+        srand(time(NULL));
+        seeded = true;
+    }
+
     int randomIndex = rand() % hand->currentSize;
-    return removeCardFromHand(hand, randomIndex); //Call Remove card from hand function if not false
+    printf("Removing card at index %d...\n", randomIndex + 1); // Debug info
+    return removeCardFromHand(hand, randomIndex);
 }
+
 
 // Display the hand with multiple card types
 void displayHand(const Hand* hand) {
