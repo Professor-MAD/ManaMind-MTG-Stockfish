@@ -1,4 +1,4 @@
-#include "game_logic.h"
+#include "../include/game_logic.h"
 
 int damageToPlayer(int attackPowerToPlayer, int playerLifeTotal, bool blocked) {
     if (!blocked) {

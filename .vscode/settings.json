@@ -8,6 +8,10 @@
     "stdlib.h": "c",
     "hand.h": "c",
     "stdbool.h": "c",
-    "shared_definitions.h": "c"
+    "shared_definitions.h": "c",
+    "time.h": "c",
+    "cards.h": "c",
+    "land_card.h": "c",
+    "card_helpers.h": "c"
   }
 }

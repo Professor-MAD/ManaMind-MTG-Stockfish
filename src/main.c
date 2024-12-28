@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include "cards.h"
-#include "hand.h"
-#include "green_deck.h"
-#include "land_card.h"
+#include "../include/cards.h"
+#include "../include/hand.h"
+#include "../include/green_deck.h"
+#include "../include/land_card.h"
 
 int main(void) {
     // Initialize Hand
@@ -26,7 +26,6 @@ int main(void) {
     displayHand(&playerHand);
 
     // Discard a random card
-    discardRandomCard(&playerHand);
     discardRandomCard(&playerHand);
     displayHand(&playerHand);
 

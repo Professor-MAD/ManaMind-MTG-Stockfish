@@ -1,4 +1,4 @@
-#include "green_deck.h"
+#include "../include/green_deck.h"
 
 // Define the cards
 creatureCard grizzlyBears;

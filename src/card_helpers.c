@@ -1,6 +1,6 @@
-#include "card_helpers.h"
 #include <string.h>
-#include "land_card.h"
+#include "../include/card_helpers.h"
+#include "../include/land_card.h"
 
 // Mana Cost Helpers
 void setManaCost(ManaCost* manaCost, int total, int colorless, int green, int red, int blue, int white, int black, bool isXCost) {

@@ -1,9 +1,10 @@
 #include <stdio.h>
-#include "hand.h"
+#include <time.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include "cards.h"
-#include <time.h>
+#include "../include/cards.h"
+#include "../include/hand.h"
+
 
 // Initialize Hand
 void initializeHand(Hand* hand) {
@@ -68,7 +69,7 @@ bool discardRandomCard(Hand* hand) {
     }
 
     int randomIndex = rand() % hand->currentSize;
-    printf("Removing card at index %d...\n", randomIndex + 1); // Debug info
+    // printf("Removing card at index %d...\n", randomIndex + 1); // Debug info
     return removeCardFromHand(hand, randomIndex);
 }
 

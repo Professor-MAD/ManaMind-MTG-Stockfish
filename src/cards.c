@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <string.h>
-#include "shared_definitions.h"
-#include "creature_card.h"
-#include "sorcery_card.h"
-#include "card_helpers.h"
-#include "land_card.h"
+#include "../include/shared_definitions.h"
+#include "../include/creature_card.h"
+#include "../include/sorcery_card.h"
+#include "../include/card_helpers.h"
+#include "../include/land_card.h"
 
 // Grizzly Bears initialization
 void initializeGrizzlyBears(creatureCard* card) {

@@ -1,20 +1,25 @@
 # Compiler and Flags
 CC = clang
-CFLAGS = -Wall -Wextra -std=c17
+CFLAGS = -Wall -Wextra -std=c17 -Iinclude
 
 # Source Files
-SOURCES = main.c cards.c game_logic.c card_helpers.c hand.c green_deck.c
-OBJECTS = $(SOURCES:.c=.o)
-EXECUTABLE = game-engine.exe
+SRCDIR = src
+INCDIR = include
+BUILDDIR = build
+SOURCES = $(SRCDIR)/main.c $(SRCDIR)/cards.c $(SRCDIR)/hand.c $(SRCDIR)/game_logic.c $(SRCDIR)/green_deck.c $(SRCDIR)/card_helpers.c
+OBJECTS = $(patsubst $(SRCDIR)/%.c, $(BUILDDIR)/%.o, $(SOURCES))
+EXECUTABLE = $(BUILDDIR)/game-engine.exe
 
 # Build Target
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
+	@if not exist $(BUILDDIR) mkdir $(BUILDDIR)
 	$(CC) $(CFLAGS) -o $@ $^
 
-%.o: %.c
+$(BUILDDIR)/%.o: $(SRCDIR)/%.c
+	@if not exist $(BUILDDIR) mkdir $(BUILDDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	del /Q *.o $(EXECUTABLE)
+	@if exist $(BUILDDIR) rmdir /S /Q $(BUILDDIR)
