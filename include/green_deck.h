@@ -7,7 +7,7 @@
 extern creatureCard grizzlyBears;
 extern creatureCard llanowarElves;
 extern BasicLand forest;
-extern Sorcery giantGrowth;
+extern Instant giantGrowth;
 extern Enchantment elementalBond;
 extern Instant backToNature;
 

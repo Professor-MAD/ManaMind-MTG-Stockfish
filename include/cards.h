@@ -10,7 +10,7 @@
 // Functions for initializing cards
 void initializeGrizzlyBears(creatureCard* card);
 void initializeLlanowarElves(creatureCard* card);
-void initializeGiantGrowth(Sorcery* card);
+void initializeGiantGrowth(Instant* card);
 void initializeForest(BasicLand* card);
 void initializeElementalBond(Enchantment* card);
 void initializeBackToNature(Instant* card);

@@ -17,7 +17,7 @@ int main(void) {
     addCardToHand(&playerHand, &grizzlyBears, 0);
     addCardToHand(&playerHand, &llanowarElves, 0);
     addCardToHand(&playerHand, &elementalBond, 3);
-    addCardToHand(&playerHand, &giantGrowth, 2);
+    addCardToHand(&playerHand, &giantGrowth, 4);
     addCardToHand(&playerHand, &backToNature, 4);
     addCardToHand(&playerHand, &forest, 1);
     addCardToHand(&playerHand, &forest, 1);

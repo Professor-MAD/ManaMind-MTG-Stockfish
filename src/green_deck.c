@@ -4,7 +4,7 @@
 creatureCard grizzlyBears;
 creatureCard llanowarElves;
 BasicLand forest;
-Sorcery giantGrowth;
+Instant giantGrowth;
 Enchantment elementalBond;
 Instant backToNature;
 

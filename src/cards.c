@@ -10,7 +10,7 @@
 #include "../include/instant_card.h"
 
 // When initializing cards...remember the mana order:
-// total, colorless, green, red, blue, white, black, isXCost);
+// total, colorless, green, red, blue, white, black, isXCost;
 
 // Grizzly Bears initialization
 void initializeGrizzlyBears(creatureCard* card) {
@@ -49,12 +49,12 @@ void initializeLlanowarElves(creatureCard* card) {
 }
 
 // Giant Growth initialization
-void initializeGiantGrowth(Sorcery* card) {
+void initializeGiantGrowth(Instant* card) {
     strcpy_s(card->name, sizeof(card->name), "Giant Growth");
     card->colors = COLOR_GREEN;
     setManaCost(&card->manaCost, 1, 0, 1, 0, 0, 0, 0, false);
-    resetSorcery(&card->sorceryBasics);
-    resetBuffDebuffEffect(&card->buffDebuffEffect);
+    // resetSorcery(&card->sorceryBasics);
+    // resetBuffDebuffEffect(&card->buffDebuffEffect);
     card->buffDebuffEffect.hasBuffEffect = true;
     card->buffDebuffEffect.buffPower = 3;
     card->buffDebuffEffect.buffToughness = 3;
@@ -88,7 +88,8 @@ void initializeElementalBond(Enchantment* card) {
     resetGameEndEffect(&card->gameEndEffect);
     card->drawEffect.hasDrawEffect = true;
     card->drawEffect.drawAmount = 1;
-    strcpy_s(card->flavorText, sizeof(card->flavorText), "When Elemental Bond is on the battlefield, it draws power from creatures.");
+    strcpy_s(card->flavorText, sizeof(card->flavorText), "Whenever a creature you control with power 3 or greater enters, draw a card.");
+    //TODO: Connect ability with game logic/battlefield logic
 }
 
 // Back to Nature initialization
