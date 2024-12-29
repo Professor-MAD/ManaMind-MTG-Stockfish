@@ -2,6 +2,9 @@
 #include "../include/card_helpers.h"
 #include "../include/land_card.h"
 
+// Functions used in cards.c to initialize most values to 'nothing' instead of garbage values
+// Minimizes risk of unexpected behavior
+
 // Mana Cost Helpers
 void setManaCost(ManaCost* manaCost, int total, int colorless, int green, int red, int blue, int white, int black, bool isXCost) {
     manaCost->total = total;
@@ -107,6 +110,15 @@ void resetDamageEffect(DamageEffect* effect) {
     effect->damageToSingleCreature = 0;
     effect->damageToCreatureTypes = 0;
 }
+
+// Reset Destroy Effect
+// void resetDestroyEffect(DestroyEffect* effect) {
+//     effect->hasDestroyEffect = false;
+//     effect->destroysTargetCreature = false;
+//     effect->destroysRandomCreature = false;
+//     effect->destroysMultipleCreatures = false;
+
+// }
 
 // Reset Life Gain Effect
 void resetLifeGainEffect(LifeGainEffect* effect) {

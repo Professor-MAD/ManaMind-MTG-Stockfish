@@ -27,6 +27,29 @@ typedef struct {
     int damageToCreatureTypes;
 } DamageEffect;
 
+// Destroy
+typedef struct {
+    bool hasDestroyEffect;
+    bool destroyTargetCreature;
+    bool destroyRandomCreature;
+    bool destroyMultipleCreatures;
+    int destroyAmount;
+    bool destroyAll;
+    bool destroyAllCreatures;
+    bool destroyAllEnchantments;
+    bool destroyAllLands;
+    bool destroyAllArtifacts;
+    bool destroyEnchantment;
+    bool destroyArtifact;
+    bool destroyLand;
+    bool destroyArtifactCreature;
+    bool destroyRedCreature;
+    bool destroyGreenCreature;
+    bool destroyBlueCreature;
+    bool destroyWhiteCreature;
+    bool destroyblackCreature; 
+} DestroyEffect;
+
 // Life Gain
 typedef struct {
     bool hasLifeGainEffect;

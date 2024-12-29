@@ -9,6 +9,7 @@ extern creatureCard llanowarElves;
 extern BasicLand forest;
 extern Sorcery giantGrowth;
 extern Enchantment elementalBond;
+extern Instant backToNature;
 
 // Function to initialize the green deck
 void initializeGreenDeck(void);

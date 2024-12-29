@@ -7,7 +7,7 @@
 #include "../include/land_card.h"
 #include "../include/enchantment_card.h"
 #include "../include/effect_definitions.h"
-
+#include "../include/instant_card.h"
 
 // When initializing cards...remember the mana order:
 // total, colorless, green, red, blue, white, black, isXCost);
@@ -75,7 +75,6 @@ void initializeElementalBond(Enchantment* card) {
     strcpy_s(card->name, sizeof(card->name), "Elemental Bond");
     card->colors = COLOR_GREEN;
     setManaCost(&card->manaCost, 3, 2, 1, 0, 0, 0, 0, false);
-
     resetEnchantmentBasics(&card->enchantmentBasics);
     resetEquipmentBasics(&card->equipmentBasics);
     resetDrawEffect(&card->drawEffect);
@@ -87,9 +86,18 @@ void initializeElementalBond(Enchantment* card) {
     resetTokenEffect(&card->tokenEffect);
     resetBuffDebuffEffect(&card->buffDebuffEffect);
     resetGameEndEffect(&card->gameEndEffect);
-
     card->drawEffect.hasDrawEffect = true;
     card->drawEffect.drawAmount = 1;
-
     strcpy_s(card->flavorText, sizeof(card->flavorText), "When Elemental Bond is on the battlefield, it draws power from creatures.");
+}
+
+// Back to Nature initialization
+void initializeBackToNature(Instant* card) {
+    strcpy_s(card->name, sizeof(card->name), "Back to Nature");
+    card->colors = COLOR_GREEN;
+    setManaCost(&card->manaCost, 2, 1, 1, 0, 0, 0, 0, false);
+    card->destroyEffect.hasDestroyEffect = true;
+    card->destroyEffect.destroyEnchantment = true; 
+    card->destroyEffect.destroyAllEnchantments = true;
+    strcpy_s(card->flavorText, sizeof(card->flavorText), "Destroy all enchantments.");
 }

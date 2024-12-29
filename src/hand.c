@@ -101,6 +101,11 @@ void displayHand(const Hand* hand) {
                     printf("Card %d: %s (Enchantment)\n", i + 1, card->name);
                     break;
                 }
+                case 4: { // Instant
+                    Instant* card = (Instant*)hand->cards[i];
+                    printf("Card %d: %s (Instant)\n", i + 1, card->name);
+                    break;
+                }
                 default:
                     printf("Card %d: Unknown type\n", i + 1);
             }

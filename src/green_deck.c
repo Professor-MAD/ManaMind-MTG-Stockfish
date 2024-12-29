@@ -6,6 +6,7 @@ creatureCard llanowarElves;
 BasicLand forest;
 Sorcery giantGrowth;
 Enchantment elementalBond;
+Instant backToNature;
 
 // Initialize the green deck
 void initializeGreenDeck(void) {
@@ -14,4 +15,5 @@ void initializeGreenDeck(void) {
     initializeForest(&forest);
     initializeGiantGrowth(&giantGrowth);
     initializeElementalBond(&elementalBond);
+    initializeBackToNature(&backToNature);
 }
