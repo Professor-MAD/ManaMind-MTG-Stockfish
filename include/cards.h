@@ -7,20 +7,22 @@
 #include "enchantment_card.h"
 #include "instant_card.h"
 
-// Functions for initializing cards
+// Initialize green cards for green deck
 void initializeGrizzlyBears(creatureCard* card);
 void initializeLlanowarElves(creatureCard* card);
 void initializeGiantGrowth(Instant* card);
 void initializeForest(BasicLand* card);
 void initializeElementalBond(Enchantment* card);
 void initializeBackToNature(Instant* card);
+void initializeAvatarOfMight(creatureCard* card);
 
-//TODO initialize red cards for red deck
+// Initialize red cards for red deck
 void initializeRagingGoblin(creatureCard* card);
 void initializeShock(Instant* card);
 void initializeBlaze(Sorcery* card);
 void initializeBedlam(Enchantment* card);
 void initializeMountain(BasicLand* card);
-void initializeAvatarOfMight(creatureCard* card);
+void initializeShivanDragon(creatureCard* card);
+
 
 #endif

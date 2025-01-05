@@ -3,6 +3,7 @@
 #include "../include/cards.h"
 #include "../include/hand.h"
 #include "../include/green_deck.h"
+#include "../include/red_deck.h"
 #include "../include/land_card.h"
 #include "../include/game_logic.h"
 
@@ -31,7 +32,13 @@ int main(void) {
     addCardToHand(&playerOneHand, &forest, 1);
 
     // Add cards to Player Two hand
-    addCardToHand(&playerTwoHand, &grizzlyBears, 0);
+    addCardToHand(&playerTwoHand, &ragingGoblin, 0);
+    addCardToHand(&playerTwoHand, &shivanDragon, 0);
+    addCardToHand(&playerTwoHand, &shock, 4);
+    addCardToHand(&playerTwoHand, &blaze, 2);
+    addCardToHand(&playerTwoHand, &bedlam, 3);
+    addCardToHand(&playerTwoHand, &mountain, 1);
+    addCardToHand(&playerTwoHand, &mountain, 1);
 
     // Display hand
     displayHand(&playerOneHand);

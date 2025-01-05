@@ -10,6 +10,7 @@ extern BasicLand forest;
 extern Instant giantGrowth;
 extern Enchantment elementalBond;
 extern Instant backToNature;
+extern creatureCard avatarOfMight;
 
 // Function to initialize the green deck
 void initializeGreenDeck(void);
