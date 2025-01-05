@@ -7,5 +7,6 @@
 // Damage and Blocking Logic
 int damageToPlayer(int attackPowerToPlayer, int playerLifeTotal, bool blocked);
 bool blockingPreventsDamage(int attackPowerToPlayer, int toughnessOfBlocker);
+void rollToSeeWhoGoesFirst();
 
 #endif // GAME_LOGIC_H

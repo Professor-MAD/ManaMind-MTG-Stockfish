@@ -20,6 +20,7 @@ typedef struct {
 // Damage
 typedef struct {
     bool hasDamageEffect;
+    int damagetoCreatureOrPlayer;
     int damageToPlayer;
     int damageToOpponent;
     int damageToCreatures;
@@ -95,5 +96,27 @@ typedef struct {
     bool hasWinCondition;
     bool hasLoseCondition;
 } GameEndEffect;
+
+// Prevention
+typedef struct {
+    bool hasPreventAttacking;
+    bool hasPreventAttacker;
+    bool hasPreventBlocking;
+    bool hasPreventBlocker;
+    bool hasPreventDamageToPlayer;
+    bool hasPreventDamageToCreature;
+    bool hasPreventDamageToRed;
+    bool hasPreventDamageToGreen;
+    bool hasPreventDamageToBlue;
+    bool hasPreventDamagetoBlack;
+    bool hasPreventDamageToWhite;
+    bool hasPreventDamageToArtifact;
+    int damagePreventedToPlayer;
+    int damagePreventedToCreature;
+    bool fixedNumberOfCreaturesEffected;
+    bool variableNumberOfCreaturesEffected;
+    int numberOfCreaturesEffected;
+    bool allCreaturesEffected;
+} Prevention
 
 #endif

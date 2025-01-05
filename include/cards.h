@@ -15,4 +15,6 @@ void initializeForest(BasicLand* card);
 void initializeElementalBond(Enchantment* card);
 void initializeBackToNature(Instant* card);
 
+//TODO initialize red cards for red deck
+
 #endif

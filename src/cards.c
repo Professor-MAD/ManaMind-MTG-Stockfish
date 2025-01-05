@@ -100,3 +100,46 @@ void initializeBackToNature(Instant* card) {
     card->destroyEffect.destroyAllEnchantments = true;
     strcpy_s(card->flavorText, sizeof(card->flavorText), "Destroy all enchantments.");
 }
+
+//TODO Set values for red cards here
+// When initializing cards...remember the mana order:
+// total, colorless, green, red, blue, white, black, isXCost;
+
+void initializeRagingGoblin(creatureCard* card) {
+    strcpy_s(card->name, sizeof(card->name), "Raging Goblin");
+    card->colors = COLOR_RED;
+    setManaCost(&card->manaCost, 1, 0, 0, 1, 0, 0, 0, false);
+    card->abilities.hasHaste = true;
+}
+
+void initializeMountain(BasicLand* card) {
+    strcpy_s(card->name, sizeof(card->name), "Mountain");
+     card->landMetaData.type = LAND_MOUNTAIN;
+    resetLandMechanics(&card->landMechanicBasics);
+    resetManaProduction(&card->manaProduction);
+    card->manaProduction.redManaAdded = 1;
+}
+
+void initializeShock(Instant* card) {
+    strcpy_s(card->name, sizeof(card->name), "Shock");
+    card->colors = COLOR_RED;
+    setManaCost(&card->manaCost, 1, 0, 0, 1, 0, 0, 0, false);
+    card->damageEffect.hasDamageEffect = true;
+    card->damageEffect.damagetoCreatureOrPlayer = 2;
+}
+
+void initializeBlaze(Sorcery* card) {
+    int manaPoolBlaze = 3; // PLACEHOLDER...See note below
+    strcpy_s(card->name, sizeof(card->name), "Blaze");
+    card->colors = COLOR_RED;
+    setManaCost(&card->manaCost, 2, 1, 0, 1, 0, 0, 0, true);
+    card->damageEffect.hasDamageEffect = true;
+    card->damageEffect.damagetoCreatureOrPlayer = manaPoolBlaze; //PLACEHOLDER 3 mana to determine value and casting for now
+}
+
+void initializeBedlam(Enchantment* card) {
+    strcpy_s(card->name, sizeof(card->name), "Bedlam");
+    card->colors = COLOR_RED;
+    setManaCost(&card->manaCost, 4, 2, 0, 2, 0, 0, 0, false);
+    
+}

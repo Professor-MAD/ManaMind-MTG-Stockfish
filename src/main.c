@@ -4,30 +4,42 @@
 #include "../include/hand.h"
 #include "../include/green_deck.h"
 #include "../include/land_card.h"
+#include "../include/game_logic.h"
 
 int main(void) {
-    // Initialize Hand
-    Hand playerHand;
-    initializeHand(&playerHand);
+    // Roll to see who goes first
+    rollToSeeWhoGoesFirst();
+
+    // Initialize Player One Hand
+    Hand playerOneHand;
+    initializeHand(&playerOneHand);
+
+    // Initialize Player Two Hand
+    Hand playerTwoHand;
+    initializeHand(&playerTwoHand);
 
     // Initialize Green Deck
     initializeGreenDeck();
 
-    // Add cards to the hand
-    addCardToHand(&playerHand, &grizzlyBears, 0);
-    addCardToHand(&playerHand, &llanowarElves, 0);
-    addCardToHand(&playerHand, &elementalBond, 3);
-    addCardToHand(&playerHand, &giantGrowth, 4);
-    addCardToHand(&playerHand, &backToNature, 4);
-    addCardToHand(&playerHand, &forest, 1);
-    addCardToHand(&playerHand, &forest, 1);
+    // Add cards to Player One hand
+    addCardToHand(&playerOneHand, &grizzlyBears, 0);
+    addCardToHand(&playerOneHand, &llanowarElves, 0);
+    addCardToHand(&playerOneHand, &elementalBond, 3);
+    addCardToHand(&playerOneHand, &giantGrowth, 4);
+    addCardToHand(&playerOneHand, &backToNature, 4);
+    addCardToHand(&playerOneHand, &forest, 1);
+    addCardToHand(&playerOneHand, &forest, 1);
+
+    // Add cards to Player Two hand
+    addCardToHand(&playerTwoHand, &grizzlyBears, 0);
 
     // Display hand
-    displayHand(&playerHand);
+    displayHand(&playerOneHand);
+    displayHand(&playerTwoHand);
 
-    // Discard a random card
-    discardRandomCard(&playerHand);
-    displayHand(&playerHand);
+    // // Discard a random card
+    // discardRandomCard(&playerOneHand);
+    // displayHand(&playerOneHand);
 
     return 0;
 }
