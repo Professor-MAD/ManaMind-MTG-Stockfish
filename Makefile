@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -std=c17 -Iinclude
 SRCDIR = src
 INCDIR = include
 BUILDDIR = build
-SOURCES = $(SRCDIR)/main.c $(SRCDIR)/cards.c $(SRCDIR)/hand.c $(SRCDIR)/game_logic.c $(SRCDIR)/green_deck.c $(SRCDIR)/card_helpers.c $(SRCDIR)/red_deck.c
+SOURCES = $(SRCDIR)/main.c $(SRCDIR)/cards.c $(SRCDIR)/hand.c $(SRCDIR)/game_logic.c $(SRCDIR)/green_deck.c $(SRCDIR)/card_helpers.c $(SRCDIR)/red_deck.c $(SRCDIR)/ascii_art.c
 OBJECTS = $(patsubst $(SRCDIR)/%.c, $(BUILDDIR)/%.o, $(SOURCES))
 EXECUTABLE = $(BUILDDIR)/game-engine.exe
 

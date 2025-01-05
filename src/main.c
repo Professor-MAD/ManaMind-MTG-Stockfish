@@ -6,8 +6,12 @@
 #include "../include/red_deck.h"
 #include "../include/land_card.h"
 #include "../include/game_logic.h"
+#include "../include/ascii_art.h"
 
 int main(void) {
+    // Intro
+     displayAsciiArt();
+
     // Roll to see who goes first
     rollToSeeWhoGoesFirst();
 

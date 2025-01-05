@@ -12,7 +12,6 @@
 // When initializing cards...remember the mana order:
 // total, colorless, green, red, blue, white, black, isXCost;
 
-// Grizzly Bears initialization
 void initializeGrizzlyBears(creatureCard* card) {
     strcpy_s(card->name, sizeof(card->name), "Grizzly Bears");
     card->colors = COLOR_GREEN;
@@ -29,7 +28,6 @@ void initializeGrizzlyBears(creatureCard* card) {
     setUnblockables(&card->unblockableVarieties);
 }
 
-// Llanowar Elves initialization
 void initializeLlanowarElves(creatureCard* card) {
     strcpy_s(card->name, sizeof(card->name), "Llanowar Elves");
     card->colors = COLOR_GREEN;
@@ -48,7 +46,6 @@ void initializeLlanowarElves(creatureCard* card) {
     setUnblockables(&card->unblockableVarieties);
 }
 
-// Giant Growth initialization
 void initializeGiantGrowth(Instant* card) {
     strcpy_s(card->name, sizeof(card->name), "Giant Growth");
     card->colors = COLOR_GREEN;
@@ -59,7 +56,6 @@ void initializeGiantGrowth(Instant* card) {
     strcpy_s(card->flavorText, sizeof(card->flavorText), "Strength of the wild in a single moment.");
 }
 
-// Forest initialization
 void initializeForest(BasicLand* card) {
     strcpy_s(card->name, sizeof(card->name), "Forest");
     card->landMetaData.type = LAND_FOREST;
@@ -68,7 +64,6 @@ void initializeForest(BasicLand* card) {
     card->manaProduction.greenManaAdded = 1;
 }
 
-//Elemental Bond initialization
 void initializeElementalBond(Enchantment* card) {
     strcpy_s(card->name, sizeof(card->name), "Elemental Bond");
     card->colors = COLOR_GREEN;
@@ -90,7 +85,6 @@ void initializeElementalBond(Enchantment* card) {
     //TODO: Connect ability with game logic/battlefield logic
 }
 
-// Back to Nature initialization
 void initializeBackToNature(Instant* card) {
     strcpy_s(card->name, sizeof(card->name), "Back to Nature");
     card->colors = COLOR_GREEN;
