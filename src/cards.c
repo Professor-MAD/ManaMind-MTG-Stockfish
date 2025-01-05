@@ -101,15 +101,25 @@ void initializeBackToNature(Instant* card) {
     strcpy_s(card->flavorText, sizeof(card->flavorText), "Destroy all enchantments.");
 }
 
+void initializeAvatarOfMight(creatureCard* card) {
+    strcpy_s(card->name, sizeof(card->name), "Avatar of Might");
+    card->colors = COLOR_GREEN;
+    setManaCost(&card->manaCost, 8, 6, 2, 0, 0, 0, 0, false);
+    card->abilities.hasTrample;
+    card->power = 8;
+    card->toughness = 8;
+    //TODO Add secondary ability here...depends on oponent's battlefield creature array int value
+}
+
 //TODO Set values for red cards here
-// When initializing cards...remember the mana order:
-// total, colorless, green, red, blue, white, black, isXCost;
 
 void initializeRagingGoblin(creatureCard* card) {
     strcpy_s(card->name, sizeof(card->name), "Raging Goblin");
     card->colors = COLOR_RED;
     setManaCost(&card->manaCost, 1, 0, 0, 1, 0, 0, 0, false);
     card->abilities.hasHaste = true;
+    card->power = 1;
+    card->toughness = 1;
 }
 
 void initializeMountain(BasicLand* card) {
@@ -141,5 +151,15 @@ void initializeBedlam(Enchantment* card) {
     strcpy_s(card->name, sizeof(card->name), "Bedlam");
     card->colors = COLOR_RED;
     setManaCost(&card->manaCost, 4, 2, 0, 2, 0, 0, 0, false);
-    
+    card->prevention.hasPreventBlocking = true;
+    card->prevention.allCreaturesEffected = true;
+}
+
+void initializeShivanDragon(creatureCard* card) {
+    strcpy_s(card->name, sizeof(card->name), "Shivan Dragon");
+    card->colors = COLOR_RED;
+    setManaCost(&card->manaCost, 6, 4, 0, 2, 0, 0, 0, false);
+    card->abilities.hasFlying = true;
+    card->power = 5;
+    card->toughness = 5;
 }

@@ -35,6 +35,7 @@ typedef struct {
     SearchEffect searchEffect;
     TokenEffect tokenEffect;
     BuffDebuffEffect buffDebuffEffect;
+    Prevention prevention;
     GameEndEffect gameEndEffect;
     char flavorText[250];
 } Enchantment;

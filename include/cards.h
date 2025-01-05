@@ -16,5 +16,11 @@ void initializeElementalBond(Enchantment* card);
 void initializeBackToNature(Instant* card);
 
 //TODO initialize red cards for red deck
+void initializeRagingGoblin(creatureCard* card);
+void initializeShock(Instant* card);
+void initializeBlaze(Sorcery* card);
+void initializeBedlam(Enchantment* card);
+void initializeMountain(BasicLand* card);
+void initializeAvatarOfMight(creatureCard* card);
 
 #endif
