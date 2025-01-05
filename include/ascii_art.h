@@ -1,6 +1,7 @@
 #ifndef ASCII_ART_H
 #define ASCII_ART_H
 
-void displayAsciiArt();
+void displayAsciiBrain();
+void displayManaMindAscii();
 
 #endif

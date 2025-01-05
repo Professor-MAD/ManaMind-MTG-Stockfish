@@ -10,7 +10,8 @@
 
 int main(void) {
     // Intro
-     displayAsciiArt();
+     displayAsciiBrain();
+    displayManaMindAscii();
 
     // Roll to see who goes first
     rollToSeeWhoGoesFirst();
