@@ -117,6 +117,6 @@ typedef struct {
     bool variableNumberOfCreaturesEffected;
     int numberOfCreaturesEffected;
     bool allCreaturesEffected;
-} Prevention
+} Prevention;
 
 #endif

@@ -105,7 +105,7 @@ void initializeAvatarOfMight(creatureCard* card) {
     strcpy_s(card->name, sizeof(card->name), "Avatar of Might");
     card->colors = COLOR_GREEN;
     setManaCost(&card->manaCost, 8, 6, 2, 0, 0, 0, 0, false);
-    card->abilities.hasTrample;
+    card->abilities.hasTrample = true;
     card->power = 8;
     card->toughness = 8;
     //TODO Add secondary ability here...depends on oponent's battlefield creature array int value

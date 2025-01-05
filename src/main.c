@@ -22,6 +22,9 @@ int main(void) {
     // Initialize Green Deck
     initializeGreenDeck();
 
+    // Initialize Red Deck
+    initializeRedDeck();
+
     // Add cards to Player One hand
     addCardToHand(&playerOneHand, &grizzlyBears, 0);
     addCardToHand(&playerOneHand, &llanowarElves, 0);
@@ -29,7 +32,7 @@ int main(void) {
     addCardToHand(&playerOneHand, &giantGrowth, 4);
     addCardToHand(&playerOneHand, &backToNature, 4);
     addCardToHand(&playerOneHand, &forest, 1);
-    addCardToHand(&playerOneHand, &forest, 1);
+    addCardToHand(&playerOneHand, &avatarOfMight, 0);
 
     // Add cards to Player Two hand
     addCardToHand(&playerTwoHand, &ragingGoblin, 0);

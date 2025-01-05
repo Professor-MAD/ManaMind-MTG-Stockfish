@@ -7,6 +7,7 @@ BasicLand forest;
 Instant giantGrowth;
 Enchantment elementalBond;
 Instant backToNature;
+creatureCard avatarOfMight;
 
 // Initialize the green deck
 void initializeGreenDeck(void) {
@@ -16,4 +17,5 @@ void initializeGreenDeck(void) {
     initializeGiantGrowth(&giantGrowth);
     initializeElementalBond(&elementalBond);
     initializeBackToNature(&backToNature);
+    initializeAvatarOfMight(&avatarOfMight);
 }
