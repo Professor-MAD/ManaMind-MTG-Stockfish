@@ -7,11 +7,19 @@
 #include "../include/land_card.h"
 #include "../include/game_logic.h"
 #include "../include/ascii_art.h"
+#include "../include/player.h"
 
 int main(void) {
     // Intro
-     displayAsciiBrain();
+    displayAsciiBrain();
     displayManaMindAscii();
+
+    // Make Players
+    Player player1;
+    initializePlayer(&player1);
+
+    Player player2;
+    initializePlayer(&player2);
 
     // Roll to see who goes first
     rollToSeeWhoGoesFirst();
