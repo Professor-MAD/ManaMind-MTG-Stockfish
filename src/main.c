@@ -8,6 +8,7 @@
 #include "../include/game_logic.h"
 #include "../include/ascii_art.h"
 #include "../include/player.h"
+#include "../include/library.h"
 
 int main(void) {
     // Intro
@@ -24,45 +25,37 @@ int main(void) {
     // Roll to see who goes first
     rollToSeeWhoGoesFirst();
 
-    // Initialize Player One Hand
+    // Initialize libraries for players
+    Library playerOneLibrary;
+    Library playerTwoLibrary;
+
+    // Initialize decks
+    Deck greenDeck;
+    Deck redDeck;
+    initializeGreenDeck(&greenDeck);
+    initializeRedDeck(&redDeck);
+
+    // Populate player libraries from decks
+    populateLibraryFromDeck(&playerOneLibrary, &greenDeck);
+    populateLibraryFromDeck(&playerTwoLibrary, &redDeck);
+
+    // Shuffle libraries
+    shuffleLibrary(&playerOneLibrary);
+    shuffleLibrary(&playerTwoLibrary);
+
+    // Initialize hands
     Hand playerOneHand;
     initializeHand(&playerOneHand);
-
-    // Initialize Player Two Hand
     Hand playerTwoHand;
     initializeHand(&playerTwoHand);
 
-    // Initialize Green Deck
-    initializeGreenDeck();
+    // Draw initial hands
+    drawCardsFromLibrary(&playerOneHand, &playerOneLibrary, 7);
+    drawCardsFromLibrary(&playerTwoHand, &playerTwoLibrary, 7);
 
-    // Initialize Red Deck
-    initializeRedDeck();
-
-    // Add cards to Player One hand
-    addCardToHand(&playerOneHand, &grizzlyBears, 0);
-    addCardToHand(&playerOneHand, &llanowarElves, 0);
-    addCardToHand(&playerOneHand, &elementalBond, 3);
-    addCardToHand(&playerOneHand, &giantGrowth, 4);
-    addCardToHand(&playerOneHand, &backToNature, 4);
-    addCardToHand(&playerOneHand, &forest, 1);
-    addCardToHand(&playerOneHand, &avatarOfMight, 0);
-
-    // Add cards to Player Two hand
-    addCardToHand(&playerTwoHand, &ragingGoblin, 0);
-    addCardToHand(&playerTwoHand, &shivanDragon, 0);
-    addCardToHand(&playerTwoHand, &shock, 4);
-    addCardToHand(&playerTwoHand, &blaze, 2);
-    addCardToHand(&playerTwoHand, &bedlam, 3);
-    addCardToHand(&playerTwoHand, &mountain, 1);
-    addCardToHand(&playerTwoHand, &mountain, 1);
-
-    // Display hand
+    // Display hands
     displayHand(&playerOneHand);
     displayHand(&playerTwoHand);
-
-    // // Discard a random card
-    // discardRandomCard(&playerOneHand);
-    // displayHand(&playerOneHand);
 
     return 0;
 }

@@ -10,7 +10,8 @@ Instant backToNature;
 creatureCard avatarOfMight;
 
 // Initialize the green deck
-void initializeGreenDeck(void) {
+void initializeGreenDeck(Deck* deck) {
+    // Initialize individual cards
     initializeGrizzlyBears(&grizzlyBears);
     initializeLlanowarElves(&llanowarElves);
     initializeForest(&forest);
@@ -18,4 +19,14 @@ void initializeGreenDeck(void) {
     initializeElementalBond(&elementalBond);
     initializeBackToNature(&backToNature);
     initializeAvatarOfMight(&avatarOfMight);
+
+    // Assign non-land cards
+    deck->nonLandCardCount = 4;
+    deck->nonLandCards[0] = (Card){&grizzlyBears, 0};
+    deck->nonLandCards[1] = (Card){&llanowarElves, 0};
+    deck->nonLandCards[2] = (Card){&giantGrowth, 4};
+    deck->nonLandCards[3] = (Card){&elementalBond, 3};
+
+    // Assign land card
+    deck->landCard = (Card){&forest, 1};
 }

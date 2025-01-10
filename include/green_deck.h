@@ -2,6 +2,7 @@
 #define GREEN_DECK_H
 
 #include "cards.h"
+#include "library.h"
 
 // Declare the cards
 extern creatureCard grizzlyBears;
@@ -13,6 +14,6 @@ extern Instant backToNature;
 extern creatureCard avatarOfMight;
 
 // Function to initialize the green deck
-void initializeGreenDeck(void);
+void initializeGreenDeck(Deck* deck);
 
 #endif // GREEN_DECK_H

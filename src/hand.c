@@ -4,29 +4,43 @@
 #include <stdlib.h>
 #include "../include/cards.h"
 #include "../include/hand.h"
-
+#include "../include/library.h"
 
 // Initialize Hand
 void initializeHand(Hand* hand) {
     hand->currentSize = 0;
     for (int i = 0; i < MAX_HAND_SIZE; i++) {
-        hand->cards[i] = NULL; // Initialize all slots to NULL for starting out
+        hand->cards[i] = NULL; // Initialize all slots to NULL
     }
 }
 
 // Add card to hand with type
 bool addCardToHand(Hand* hand, void* card, int cardType) {
     if (hand->currentSize >= MAX_HAND_SIZE) {
-        printf("Hand is at 10! Program limit reached.\n");
+        printf("Hand is at maximum size! Cannot add more cards.\n");
         return false;
     }
     hand->cards[hand->currentSize] = card;
     hand->cardTypes[hand->currentSize] = cardType; // Set the card type
-    // Card types: 0=creature, 1=land, 2=sorcery, 3=enchantment
     hand->currentSize++;
     return true;
 }
 
+// Draw cards from a library into the hand
+bool drawCardsFromLibrary(Hand* hand, Library* library, int numCards) {
+    for (int i = 0; i < numCards; i++) {
+        if (library->size == 0) {
+            printf("Library is empty. Cannot draw more cards.\n");
+            return false;
+        }
+        Card card = library->cards[--library->size]; // Remove top card from library
+        if (!addCardToHand(hand, card.cardPointer, card.cardType)) {
+            printf("Failed to add card to hand during draw.\n");
+            return false;
+        }
+    }
+    return true;
+}
 
 // Remove a card from hand by index
 bool removeCardFromHand(Hand* hand, int index) {
@@ -34,26 +48,15 @@ bool removeCardFromHand(Hand* hand, int index) {
         printf("Invalid index! Cannot remove card.\n");
         return false;
     }
-
-    // Print debug information for clarity
-    printf("Removing card at index %d...\n", index + 1);
-
-    // Shift all elements after `index` one position to the left
     for (int i = index; i < hand->currentSize - 1; i++) {
         hand->cards[i] = hand->cards[i + 1];
         hand->cardTypes[i] = hand->cardTypes[i + 1];
     }
-
-    // Clear the last element
     hand->cards[hand->currentSize - 1] = NULL;
     hand->cardTypes[hand->currentSize - 1] = -1;
-
-    // Decrement the size of the hand
     hand->currentSize--;
-
     return true;
 }
-
 
 // Remove a card at random
 bool discardRandomCard(Hand* hand) {
@@ -62,7 +65,7 @@ bool discardRandomCard(Hand* hand) {
         return false;
     }
 
-    // Seed the random number generator only once
+    // Seed the random number generator once
     static bool seeded = false;
     if (!seeded) {
         srand(time(NULL));
@@ -70,10 +73,9 @@ bool discardRandomCard(Hand* hand) {
     }
 
     int randomIndex = rand() % hand->currentSize;
-    // printf("Removing card at index %d...\n", randomIndex + 1); // Debug info
+    printf("Removing card at index %d...\n", randomIndex + 1);
     return removeCardFromHand(hand, randomIndex);
 }
-
 
 // Display the hand with multiple card types
 void displayHand(const Hand* hand) {
@@ -81,27 +83,27 @@ void displayHand(const Hand* hand) {
     for (int i = 0; i < hand->currentSize; i++) {
         if (hand->cards[i] != NULL) {
             switch (hand->cardTypes[i]) {
-                case 0: { // creatureCard
+                case 0: {
                     creatureCard* card = (creatureCard*)hand->cards[i];
                     printf("Card %d: %s (Creature)\n", i + 1, card->name);
                     break;
                 }
-                case 1: { // BasicLand
+                case 1: {
                     BasicLand* card = (BasicLand*)hand->cards[i];
                     printf("Card %d: Basic Land (Type: %s)\n", i + 1, card->name);
                     break;
                 }
-                case 2: { // Sorcery
+                case 2: {
                     Sorcery* card = (Sorcery*)hand->cards[i];
                     printf("Card %d: %s (Sorcery)\n", i + 1, card->name);
                     break;
                 }
-                case 3: { // Enchantment
+                case 3: {
                     Enchantment* card = (Enchantment*)hand->cards[i];
                     printf("Card %d: %s (Enchantment)\n", i + 1, card->name);
                     break;
                 }
-                case 4: { // Instant
+                case 4: {
                     Instant* card = (Instant*)hand->cards[i];
                     printf("Card %d: %s (Instant)\n", i + 1, card->name);
                     break;
