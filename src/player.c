@@ -6,9 +6,7 @@
 void initializePlayer(Player* player) {
     printf("Enter player name: ");
     
-    // Get the player's name with input validation
     if (fgets(player->playerBasics.name, sizeof(player->playerBasics.name), stdin)) {
-        // Remove trailing newline character, if present
         size_t length = strlen(player->playerBasics.name);
         if (length > 0 && player->playerBasics.name[length - 1] == '\n') {
             player->playerBasics.name[length - 1] = '\0';

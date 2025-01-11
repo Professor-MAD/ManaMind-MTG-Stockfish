@@ -19,12 +19,14 @@ void initializeRedDeck(Deck* deck) {
     initializeShivanDragon(&shivanDragon);
 
     // Assign non-land cards
-    deck->nonLandCardCount = 4;
-    deck->nonLandCards[0] = (Card){&ragingGoblin, 0};
-    deck->nonLandCards[1] = (Card){&shock, 4};
-    deck->nonLandCards[2] = (Card){&blaze, 2};
-    deck->nonLandCards[3] = (Card){&bedlam, 3};
+    deck->cardCount = 5;
+    deck->cards[0] = (DeckCard){&ragingGoblin, 0, 4};
+    deck->cards[1] = (DeckCard){&shock, 4, 4};
+    deck->cards[2] = (DeckCard){&blaze, 2, 4};
+    deck->cards[3] = (DeckCard){&bedlam, 3, 4};
+    deck->cards[4] = (DeckCard){&shivanDragon, 0, 4};
 
     // Assign land card
-    deck->landCard = (Card){&mountain, 1};
+    deck->landCard = &mountain;
+    deck->landCount = 40;
 }

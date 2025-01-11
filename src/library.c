@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "../include/cards.h"
 #include "../include/library.h"
 
@@ -8,20 +7,21 @@
 void populateLibraryFromDeck(Library* library, Deck* deck) {
     library->size = 0;
 
-    // Add non-land cards (up to 4 duplicates)
-    for (int i = 0; i < deck->nonLandCardCount; i++) {
-        for (int j = 0; j < 4; j++) {
+    // Add non-land cards based on their counts
+    for (int i = 0; i < deck->cardCount; i++) {
+        DeckCard deckCard = deck->cards[i];
+        for (int j = 0; j < deckCard.count; j++) {
             if (library->size >= MAX_LIBRARY_SIZE) {
                 printf("Library is full. Cannot add more cards.\n");
                 return;
             }
-            library->cards[library->size++] = deck->nonLandCards[i];
+            library->cards[library->size++] = (Card){deckCard.cardPointer, deckCard.cardType};
         }
     }
 
     // Add land cards to fill up the library to 60 cards
-    while (library->size < MAX_LIBRARY_SIZE) {
-        library->cards[library->size++] = deck->landCard;
+    for (int i = 0; i < deck->landCount && library->size < MAX_LIBRARY_SIZE; i++) {
+        library->cards[library->size++] = (Card){deck->landCard, 1}; // Land card type is 1
     }
 }
 
@@ -40,6 +40,6 @@ void shuffleLibrary(Library* library) {
 void displayLibrary(const Library* library) {
     printf("Library contains %d cards:\n", library->size);
     for (int i = 0; i < library->size; i++) {
-        printf("Card %d: %p\n", i + 1, library->cards[i].cardPointer);
+        printf("Card %d: Type=%d, Pointer=%p\n", i + 1, library->cards[i].cardType, library->cards[i].cardPointer);
     }
 }
