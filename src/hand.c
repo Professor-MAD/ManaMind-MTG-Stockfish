@@ -33,7 +33,7 @@ bool drawCardsFromLibrary(Hand* hand, Library* library, int numCards) {
             printf("Library is empty. Cannot draw more cards.\n");
             return false;
         }
-        Card card = library->cards[--library->size]; // Remove top card from library
+        GameCard card = library->cards[--library->size]; // Remove top card from library
         if (!addCardToHand(hand, card.cardPointer, card.cardType)) {
             printf("Failed to add card to hand during draw.\n");
             return false;

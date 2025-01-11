@@ -9,7 +9,7 @@ Instant backToNature;
 creatureCard avatarOfMight;
 
 void initializeGreenDeck(Deck* deck) {
-    // Initialize individual cards
+
     initializeGrizzlyBears(&grizzlyBears);
     initializeLlanowarElves(&llanowarElves);
     initializeForest(&forest);
@@ -18,8 +18,7 @@ void initializeGreenDeck(Deck* deck) {
     initializeBackToNature(&backToNature);
     initializeAvatarOfMight(&avatarOfMight);
 
-    // Populate deck with cards and counts
-    deck->cardCount = 6;
+    deck->nonBasicLandCardCount = 6;
     deck->cards[0] = (DeckCard){&grizzlyBears, 0, 4};
     deck->cards[1] = (DeckCard){&llanowarElves, 0, 4};
     deck->cards[2] = (DeckCard){&giantGrowth, 4, 4};
@@ -27,7 +26,6 @@ void initializeGreenDeck(Deck* deck) {
     deck->cards[4] = (DeckCard){&backToNature, 4, 4};
     deck->cards[5] = (DeckCard){&avatarOfMight, 0, 4};
 
-    // Set land card and count
     deck->landCard = &forest;
-    deck->landCount = 36; // 36 Forests to reach 60 total cards
+    deck->landCount = 36;
 }

@@ -8,20 +8,20 @@ void populateLibraryFromDeck(Library* library, Deck* deck) {
     library->size = 0;
 
     // Add non-land cards based on their counts
-    for (int i = 0; i < deck->cardCount; i++) {
+    for (int i = 0; i < deck->nonBasicLandCardCount; i++) {
         DeckCard deckCard = deck->cards[i];
         for (int j = 0; j < deckCard.count; j++) {
             if (library->size >= MAX_LIBRARY_SIZE) {
                 printf("Library is full. Cannot add more cards.\n");
                 return;
             }
-            library->cards[library->size++] = (Card){deckCard.cardPointer, deckCard.cardType};
+            library->cards[library->size++] = (GameCard){deckCard.cardPointer, deckCard.cardType};
         }
     }
 
     // Add land cards to fill up the library to 60 cards
     for (int i = 0; i < deck->landCount && library->size < MAX_LIBRARY_SIZE; i++) {
-        library->cards[library->size++] = (Card){deck->landCard, 1}; // Land card type is 1
+        library->cards[library->size++] = (GameCard){deck->landCard, 1}; // Land card type is 1
     }
 }
 
@@ -29,7 +29,7 @@ void populateLibraryFromDeck(Library* library, Deck* deck) {
 void shuffleLibrary(Library* library) {
     for (int i = library->size - 1; i > 0; i--) {
         int j = rand() % (i + 1);
-        Card temp = library->cards[i];
+        GameCard temp = library->cards[i];
         library->cards[i] = library->cards[j];
         library->cards[j] = temp;
     }
