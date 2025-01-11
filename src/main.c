@@ -9,6 +9,7 @@
 #include "../include/ascii_art.h"
 #include "../include/player.h"
 #include "../include/library.h"
+#include "../include/usage_home.h"
 
 int main(void) {
     // Intro
@@ -56,6 +57,8 @@ int main(void) {
     // Display hands
     displayHand(&playerOneHand);
     displayHand(&playerTwoHand);
+
+    initializeUsageBox();
 
     return 0;
 }
