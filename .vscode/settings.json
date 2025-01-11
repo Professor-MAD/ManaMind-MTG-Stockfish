@@ -16,6 +16,7 @@
     "enchantment_card.h": "c",
     "sorcery_card.h": "c",
     "effect_definitions.h": "c",
-    "red_deck.h": "c"
+    "red_deck.h": "c",
+    "conio.h": "c"
   }
 }
